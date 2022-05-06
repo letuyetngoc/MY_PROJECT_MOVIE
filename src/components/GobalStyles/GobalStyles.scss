@@ -1,0 +1,18 @@
+// Helper
+//Vendor
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'antd/dist/antd.css';
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+// Base
+@import './Base/reset';
+@import './Base//gobal'
+// Components
+// Layout
+// Pages
+// Themes
