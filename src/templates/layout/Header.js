@@ -9,8 +9,8 @@ import { NavLink } from 'react-router-dom'
 
 export default function Header() {
     return (
-        <div className='fixed w-full opacity-90 z-10'>
-            <Popover className="relative bg-white ">
+        <div className='fixed w-full opacity-90 z-10 shadow-md'>
+            <Popover className="relative bg-gray-200 ">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
                         <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -30,24 +30,24 @@ export default function Header() {
                             </Popover.Button>
                         </div>
                         <Popover.Group as="nav" className="hidden md:flex space-x-10">
-                            <NavLink to="/home" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            <NavLink to="/home" className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                 Home
                             </NavLink>
-                            <NavLink to="/news" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            <NavLink to="/news" className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                 News
                             </NavLink>
-                            <NavLink to="/contact" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            <NavLink to="/contact" className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                 Contact
                             </NavLink>
-                            <NavLink to="/register" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            <NavLink to="/register" className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                 Register
                             </NavLink>
-                            <NavLink to="/login" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            <NavLink to="/login" className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                 Login
                             </NavLink>
                         </Popover.Group>
                         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-900 hover:text-indigo-600">
                                 Sign in
                             </a>
                             <a
@@ -91,28 +91,28 @@ export default function Header() {
                             <div className="py-6 px-5 space-y-6">
                                 <div className="grid grid-cols-1 gap-y-4 gap-x-8">
 
-                                    <NavLink to="/home" className=' hover:bg-gray-50'>
-                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    <NavLink to="/home" className=' hover:bg-gray-200'>
+                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                             Home
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/news" className=' hover:bg-gray-50' >
-                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    <NavLink to="/news" className=' hover:bg-gray-200' >
+                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                             New
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/contact" className=' hover:bg-gray-50'>
-                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    <NavLink to="/contact" className=' hover:bg-gray-200'>
+                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                             Contact
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/register" className=' hover:bg-gray-50'>
-                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    <NavLink to="/register" className=' hover:bg-gray-200'>
+                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                             Register
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/login" className=' hover:bg-gray-50'>
-                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    <NavLink to="/login" className=' hover:bg-gray-200'>
+                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
                                             Login
                                         </Popover.Button>
                                     </NavLink>

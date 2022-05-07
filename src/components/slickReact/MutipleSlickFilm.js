@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import CardFilm from "../CardFilm/CardFilm";
 import './MutipleSlickFilm.css'
 
 function SampleNextArrow(props) {
@@ -7,7 +8,7 @@ function SampleNextArrow(props) {
     return (
         <div
             className={className}
-            style={{ ...style, background: "red", color: "black" }}
+            style={{ ...style, }}
             onClick={onClick}
         />
     );
@@ -18,7 +19,7 @@ function SamplePrevArrow(props) {
     return (
         <div
             className={className}
-            style={{ ...style, display: "block", background: "green" }}
+            style={{ ...style, }}
             onClick={onClick}
         />
     );
@@ -27,15 +28,16 @@ function SamplePrevArrow(props) {
 export default class MultipleRows extends Component {
     render() {
         const settings = {
-            className: "slider variable-width",
-            centerMode: true,
+            className: 'center',
+            dots: false,
             infinite: true,
-            centerPadding: "60px",
-            slidesToShow: 3,
             speed: 500,
             rows: 2,
-            auto: true,
-            slidesPerRow: 2,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            initialSlide: 1,
+            // autoplay: true,
+            pauseOnHover: true,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
             responsive: [
@@ -49,76 +51,62 @@ export default class MultipleRows extends Component {
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 2,
-                        initialSlide: 2
+                        initialSlide: 2,
                     }
                 },
                 {
                     breakpoint: 480,
                     settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        rows: 1,
                     }
                 }
             ]
         };
         return (
             <div>
-                <h2>Multiple Rows</h2>
+                < div className="flex justify-content-center my-4">
+                    <p className="text-2xl font-medium text-gray-900 hover:text-indigo-600 cursor-pointer mr-7">Đang chiếu</p>
+                    <p className="text-2xl font-medium text-gray-900 hover:text-indigo-600 cursor-pointer">Sắp chiếu</p>
+                </div>
                 <Slider {...settings}>
                     <div>
-                        <h3>1</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>2</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>3</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>4</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>5</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>6</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>7</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>8</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>9</h3>
+                        <CardFilm />
                     </div>
                     <div>
-                        <h3>10</h3>
-                    </div>
-                    <div>
-                        <h3>11</h3>
-                    </div>
-                    <div>
-                        <h3>12</h3>
-                    </div>
-                    <div>
-                        <h3>13</h3>
-                    </div>
-                    <div>
-                        <h3>14</h3>
-                    </div>
-                    <div>
-                        <h3>15</h3>
-                    </div>
-                    <div>
-                        <h3>16</h3>
+                        <CardFilm />
                     </div>
                 </Slider>
             </div>
-        );
+        )
     }
 }
