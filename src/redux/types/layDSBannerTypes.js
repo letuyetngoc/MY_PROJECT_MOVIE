@@ -1,0 +1,1 @@
+export const GET_ARRFILM = 'GET_ARRFILM'

@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GobalStyles from './components/GobalStyles';
+import { Provider } from 'react-redux';
+import { store } from './redux/configStore';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <GobalStyles>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </GobalStyles>
   </React.StrictMode>,
   document.getElementById('root'));
