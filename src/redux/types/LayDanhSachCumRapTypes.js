@@ -1,0 +1,1 @@
+export const GET_ARR_CUM_RAP = 'GET_ARR_CUM_RAP'

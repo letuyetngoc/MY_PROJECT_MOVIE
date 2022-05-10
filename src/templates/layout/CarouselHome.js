@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import SlickCarouselFilm from '../../components/SlickAntd/SlickCarouselFilm'
 
-
-export default function CarouselHome() {
+function CarouselHome({ arrBanner }) {
 
     return (
-        <SlickCarouselFilm />
+        <div className='myMovie__carousel'>
+            <SlickCarouselFilm arrBanner={arrBanner} />
+        </div>
     )
 }
+export default CarouselHome

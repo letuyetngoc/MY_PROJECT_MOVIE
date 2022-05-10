@@ -3,21 +3,21 @@ import { createBrowserHistory } from "history";
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
-import Home from './pages/Home/Home'
-import Contact from './pages/Contact/Contact'
-import News from './pages/News/News'
+import Phim from './pages/Phim/Phim'
+import CumRap from './pages/CumRap/CumRap'
+import ChiTietPhim from './pages/ChiTietPhim/ChiTietPhim';
 let history = createBrowserHistory();
 
 function App() {
   return (
     <Router history={history}>
       <Switch>
-        <HomeTemplate path='/home' exact Component={Home} />
-        <HomeTemplate path='/contact' exact Component={Contact} />
-        <HomeTemplate path='/news' exact Component={News} />
-        <Route path='/register' exact Component={Register} />
-        <Route path='/login' exact Component={Login} />
-        <HomeTemplate path='' exact Component={Home} />
+        <HomeTemplate path='/phim' exact Component={Phim} />
+        <HomeTemplate path='/cumrap' exact Component={CumRap} />
+        <HomeTemplate path='/chitietphim' exact Component={ChiTietPhim} />
+        <Route path='/dangki' exact Component={Register} />
+        <Route path='/dangnhap' exact Component={Login} />
+        <HomeTemplate path='' exact Component={Phim} />
       </Switch>
     </Router>
   );

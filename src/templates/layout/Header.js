@@ -30,20 +30,18 @@ export default function Header() {
                             </Popover.Button>
                         </div>
                         <Popover.Group as="nav" className="hidden md:flex space-x-10">
-                            <NavLink to="/home" className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                Home
+                            <NavLink to="/phim" className="text-base font-medium text-gray-900 hover:text-indigo-600">
+                                Phim
                             </NavLink>
-                            <NavLink to="/news" className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                News
+                            <NavLink to="/cumrap" className="text-base font-medium text-gray-900 hover:text-indigo-600">
+                                Cụm rạp
                             </NavLink>
-                            <NavLink to="/contact" className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                Contact
+
+                            <NavLink to="/dangki" className="text-base font-medium text-gray-900 hover:text-indigo-600">
+                                Đăng kí
                             </NavLink>
-                            <NavLink to="/register" className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                Register
-                            </NavLink>
-                            <NavLink to="/login" className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                Login
+                            <NavLink to="/dangnhap" className="text-base font-medium text-gray-900 hover:text-indigo-600">
+                                Đăng nhập
                             </NavLink>
                         </Popover.Group>
                         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
@@ -91,29 +89,25 @@ export default function Header() {
                             <div className="py-6 px-5 space-y-6">
                                 <div className="grid grid-cols-1 gap-y-4 gap-x-8">
 
-                                    <NavLink to="/home" className=' hover:bg-gray-200'>
+                                    <NavLink to="/phim" className=' hover:bg-gray-200'>
                                         <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                            Home
+                                            Phim
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/news" className=' hover:bg-gray-200' >
+                                    <NavLink to="/cumrap" className=' hover:bg-gray-200' >
                                         <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                            New
+                                            Cụm rạp
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/contact" className=' hover:bg-gray-200'>
+
+                                    <NavLink to="/dangki" className=' hover:bg-gray-200'>
                                         <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                            Contact
+                                            Đăng kí
                                         </Popover.Button>
                                     </NavLink>
-                                    <NavLink to="/register" className=' hover:bg-gray-200'>
+                                    <NavLink to="/dangnhap" className=' hover:bg-gray-200'>
                                         <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                            Register
-                                        </Popover.Button>
-                                    </NavLink>
-                                    <NavLink to="/login" className=' hover:bg-gray-200'>
-                                        <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
-                                            Login
+                                            Đăng nhập
                                         </Popover.Button>
                                     </NavLink>
                                 </div>

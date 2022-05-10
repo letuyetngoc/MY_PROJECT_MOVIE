@@ -1,0 +1,29 @@
+.movie__phim-slickFilm {
+
+    .ant-carousel,
+    .slick-dots {
+        width: auto;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: rgb(79 70 229) !important;
+        font-size: 1.5rem !important;
+    }
+
+    .ant-tabs-ink-bar {
+        display: none;
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        color: rgb(79 70 229);
+    }
+
+    .ant-tabs-tab:hover {
+        color: rgb(79 70 229)
+    }
+
+    /* .slick-prev {
+    left: -30px !important;
+} */
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Footer() {
+
     return (
         <footer className="px-4 divide-y bg-gray-200 text-coolGray-800 font-sans mt-4">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
@@ -22,7 +23,7 @@ export default function Footer() {
                                 <a className='text-gray-900 hover:text-indigo-600' rel="noopener noreferrer" href="#">Giới thiệu</a>
                             </li>
                             <li>
-                                <a className='text-gray-900 hover:text-indigo-600' rel="noopener noreferrer" href="#">Tiện ich online</a>
+                                <a className='text-gray-900 hover:text-indigo-600' rel="noopener noreferrer" href="#">Tiện ích online</a>
                             </li>
                             <li>
                                 <a className='text-gray-900 hover:text-indigo-600' rel="noopener noreferrer" href="#">Thẻ quà tặng</a>
@@ -84,6 +85,5 @@ export default function Footer() {
             </div>
             <div className="py-6 text-sm text-center text-coolGray-600">© 1968 Company Co. All rights reserved.</div>
         </footer>
-
     )
 }

@@ -1,7 +1,7 @@
 import { GET_ARRFILM } from "../types/layDSBannerTypes"
 
 const stateDefault = {
-    arrFilm: [{
+    arrBanner: [{
         "maBanner": 1,
         "maPhim": 1282,
         "hinhAnh": "https://movienew.cybersoft.edu.vn/hinhanh/ban-tay-diet-quy.png"
