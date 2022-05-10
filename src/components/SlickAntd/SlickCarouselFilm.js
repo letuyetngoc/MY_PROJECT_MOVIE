@@ -1,7 +1,5 @@
 import { Carousel } from 'antd';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import LayDSBannerAction from '../../redux/actions/LayDSBannerAction';
+import './SlickCarouselFilm.scss'
 
 const contentStyle = {
     class: 'center',
@@ -13,17 +11,9 @@ const contentStyle = {
 
 };
 
-export default function SlickCarouselFilm() {
-
-    const { arrFilm } = useSelector(state => state.LayDSBannerReducer)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(LayDSBannerAction)
-    }, [])
-
+export default function SlickCarouselFilm({ arrBanner }) {
     const renderFilm = () => {
-        return arrFilm.map((film, index) => {
+        return arrBanner.map((film, index) => {
             return < div key={index} >
                 <div style={{
                     ...contentStyle,
