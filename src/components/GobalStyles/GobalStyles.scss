@@ -12,8 +12,10 @@
 
 // Base
 @import './Base/reset';
-@import './Base//gobal'
+@import './Base//gobal';
 // Components
+@import './Components/ratingCircle.scss';
 // Layout
 // Pages
+@import './Pages/chiTietPhim.scss'
 // Themes

@@ -1,4 +1,4 @@
-import { GET_ARRFILM_DANG_CHIEU, GET_ARRFILM_SAP_CHIEU, GET_ARRFILM_SLICK, GET_CHI_TIET_PHIM } from "../types/LayDanhSachPhimTypes"
+import { GET_ARRFILM_DANG_CHIEU, GET_ARRFILM_SAP_CHIEU, GET_ARRFILM_SLICK, GET_CHI_TIET_PHIM } from "../types/QuanLiPhimTypes"
 
 const stateDefault = {
     arrFilm: [],
@@ -6,7 +6,7 @@ const stateDefault = {
     arrFilmSapChieu: [],
     filmDetail: {}
 }
-const LayDanhSachPhimReducer = (state = stateDefault, action) => {
+const QuanLiPhimReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case GET_ARRFILM_SLICK: {
             state.arrFilm = action.arrFilm
@@ -29,4 +29,4 @@ const LayDanhSachPhimReducer = (state = stateDefault, action) => {
         default: return { ...state }
     }
 }
-export default LayDanhSachPhimReducer
+export default QuanLiPhimReducer
