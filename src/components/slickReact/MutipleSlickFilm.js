@@ -4,7 +4,7 @@ import CardFilm from "../CardFilm/CardFilm";
 import './MutipleSlickFilm.scss'
 
 import { Tabs } from 'antd';
-import { GET_ARRFILM_DANG_CHIEU, GET_ARRFILM_SAP_CHIEU } from "../../redux/types/LayDanhSachPhimTypes";
+import { GET_ARRFILM_DANG_CHIEU, GET_ARRFILM_SAP_CHIEU } from "../../redux/types/QuanLiPhimTypes";
 import { useDispatch, useSelector } from "react-redux";
 
 const { TabPane } = Tabs;
@@ -33,7 +33,7 @@ function SamplePrevArrow(props) {
 
 const MultipleSlickFilm = ({ arrFilm }) => {
     const dispatch = useDispatch()
-    const { arrFilmDangChieu, arrFilmSapChieu } = useSelector(state => state.LayDanhSachPhimReducer)
+    const { arrFilmDangChieu, arrFilmSapChieu } = useSelector(state => state.QuanLiPhimReducer)
     const settings = {
         className: 'center',
         dots: false,

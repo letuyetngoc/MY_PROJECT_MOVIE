@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MultipleSlickFilm from '../../components/slickReact/MutipleSlickFilm'
-import LayDanhSachPhimAction from '../../redux/actions/LayDanhSachPhimAction'
-import LayDSBannerAction from '../../redux/actions/LayDSBannerAction'
+import { LayDanhSachPhimAction } from '../../redux/actions/QuanLiRapAction'
+import LayDSBannerAction from '../../redux/actions/QuanLiPhimAction'
 import CarouselHome from '../../templates/layout/CarouselHome'
 
 export default function Home() {
     const dispatch = useDispatch()
 
-    const { arrFilm } = useSelector(state => state.LayDanhSachPhimReducer)
+    const { arrFilm } = useSelector(state => state.QuanLiPhimReducer)
 
     useEffect(() => {
         dispatch(LayDanhSachPhimAction)
@@ -21,9 +21,11 @@ export default function Home() {
     const { arrBanner } = useSelector(state => state.LayDSBannerReducer)
 
     return (
-        <div style={{ width: '85%', margin: '0 auto' }}>
+        <>
             <CarouselHome arrBanner={arrBanner} />
-            <MultipleSlickFilm arrFilm={arrFilm} />
-        </div>
+            <div style={{ width: '85%', margin: '0 auto' }}>
+                <MultipleSlickFilm arrFilm={arrFilm} />
+            </div>
+        </>
     )
 }

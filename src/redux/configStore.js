@@ -1,14 +1,14 @@
 import { applyMiddleware, combineReducers } from "redux";
 import { createStore } from 'redux'
 import thunk from "redux-thunk";
-import LayDanhSachRapReducer from "./reducers/LayDanhSachCumRapReducer";
-import LayDanhSachPhimReducer from "./reducers/LayDanhSachPhimReducer";
 import LayDSBannerReducer from "./reducers/LayDSBannerReducer";
+import QuanLiPhimReducer from "./reducers/QuanLiPhimReducer";
+import QuanLiRapReducer from "./reducers/QuanLiRapReducer";
 
 const rootReducer = combineReducers({
     LayDSBannerReducer,
-    LayDanhSachPhimReducer,
-    LayDanhSachRapReducer,
+    QuanLiPhimReducer,
+    QuanLiRapReducer
 })
 export const store = createStore(rootReducer, applyMiddleware(thunk))
 

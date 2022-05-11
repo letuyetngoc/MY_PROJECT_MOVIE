@@ -14,7 +14,7 @@ function App() {
       <Switch>
         <HomeTemplate path='/phim' exact Component={Phim} />
         <HomeTemplate path='/cumrap' exact Component={CumRap} />
-        <HomeTemplate path='/chitietphim' exact Component={ChiTietPhim} />
+        <HomeTemplate path='/chitietphim/:id' exact Component={ChiTietPhim} />
         <Route path='/dangki' exact Component={Register} />
         <Route path='/dangnhap' exact Component={Login} />
         <HomeTemplate path='' exact Component={Phim} />

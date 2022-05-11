@@ -1,7 +1,7 @@
 import { Tabs } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import LayDanhSachCumRapAction from '../../redux/actions/LayDanhSachCumRapAction';
+import { LayDanhSachCumRapAction } from '../../redux/actions/QuanLiRapAction';
 import moment from 'moment'
 import _ from 'lodash'
 const { TabPane } = Tabs;
@@ -13,7 +13,7 @@ const CumRap = () => {
 
     const [chiTietRap, setChiTietRap] = useState()
     const dispatch = useDispatch()
-    const { arrCumRap } = useSelector(state => state.LayDanhSachRapReducer)
+    const { arrCumRap } = useSelector(state => state.QuanLiRapReducer)
 
     useEffect(() => {
         dispatch(LayDanhSachCumRapAction)
@@ -23,7 +23,7 @@ const CumRap = () => {
         return setChiTietRap(cumRap)
     }
     return (
-        <div style={{ width: '85%', margin: '0 auto' }} className='shadow-md p-2 mt-5'>
+        <div style={{ width: '85%', margin: '0 auto' }} className='shadow-md  pt-32 pb-10'>
             <h3 className=' mb-4 text-center font-bold text-3xl text-indigo-600'>MOVIE CINEMAS</h3>
             <Tabs style={{ width: '85%', margin: '0 auto' }} defaultActiveKey="1" >
                 {arrCumRap.map((rap, index) => {
@@ -60,7 +60,6 @@ const CumRap = () => {
                                 </div>
                                 <p className='mt-2 text-center font-bold text-2xl text-indigo-600 my-3'>DANH SÁCH PHIM</p>
                                 {chiTietRap?.danhSachPhim.slice(0, 5).map((phim, index) => {
-                                    console.log('phim', phim)
                                     return (
                                         <div className='mt-2' key={index}>
                                             <h3 className=' my-2 font-medium text-xl text-gray-900'>{phim.tenPhim}</h3>
