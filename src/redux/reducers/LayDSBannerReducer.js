@@ -10,7 +10,7 @@ const stateDefault = {
 const LayDSBannerReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case GET_ARRFILM: {
-            state.arrFilm = action.arrFilm
+            state.arrBanner = action.arrFilm
             return { ...state }
         }
         default: return { ...state }

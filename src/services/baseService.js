@@ -1,4 +1,4 @@
-import { DOMAIN, TOKEN } from "../util/settings/config"
+import { ACCESS_TOKEN, DOMAIN, TOKEN } from "../util/settings/config"
 import axios from 'axios';
 export class baseService {
     put = (url, model) => {
@@ -7,7 +7,7 @@ export class baseService {
             method: 'PUT',
             data: model,
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
                 'TokenCybersoft': TOKEN
             }
 
@@ -19,7 +19,7 @@ export class baseService {
             method: 'POST',
             data: model,
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
                 'TokenCybersoft': TOKEN
             }
 
@@ -30,7 +30,7 @@ export class baseService {
             url: `${DOMAIN}/${url}`,
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
                 'TokenCybersoft': TOKEN
             }
         })
@@ -40,7 +40,7 @@ export class baseService {
             url: `${DOMAIN}/${url}`,
             method: 'DELETE',
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
                 'TokenCybersoft': TOKEN
             }
         })

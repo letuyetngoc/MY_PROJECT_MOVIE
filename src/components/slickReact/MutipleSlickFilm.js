@@ -43,7 +43,7 @@ const MultipleSlickFilm = ({ arrFilm }) => {
         slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 1,
-        autoplay: true,
+        // autoplay: true,
         pauseOnHover: true,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
