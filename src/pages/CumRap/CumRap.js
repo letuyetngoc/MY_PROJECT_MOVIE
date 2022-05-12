@@ -2,6 +2,8 @@ import { Tabs } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LayDanhSachCumRapAction } from '../../redux/actions/QuanLiRapAction';
+
+import { history } from '../../App'
 import moment from 'moment'
 import _ from 'lodash'
 const { TabPane } = Tabs;
@@ -72,6 +74,7 @@ const CumRap = () => {
                                                     <div>
                                                         {phim.lstLichChieuTheoPhim?.slice(0, 15).map((lichChieu, index) => {
                                                             return <button
+                                                                onClick={() => history.push(`/checkout/${lichChieu.maLichChieu}`)}
                                                                 key={index}
                                                                 className='bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-1 px-2 rounded m-1'
                                                             >{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</button>

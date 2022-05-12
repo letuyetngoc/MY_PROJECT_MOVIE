@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { LayThongTinLichChieuPhim } from '../../redux/actions/QuanLiRapAction';
+import { history } from '../../App'
 
 import moment from 'moment';
 import { Tabs } from 'antd';
@@ -61,7 +62,8 @@ export default function ChiTietPhim(props) {
                                                 </div>
                                                 <div className='flex flex-wrap mt-2'>
                                                     {cumRap.lichChieuPhim?.slice(0, 10).map((lichChieu, index) => {
-                                                        return <button key={index} className='py-1 px-2 bg-gray-200 hover:bg-gray-300 m-1 rounded'>{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</button>
+                                                        return <button onClick={() => history.push(`/checkout/${lichChieu.maLichChieu}`)}
+                                                            key={index} className='py-1 px-2 bg-gray-200 hover:bg-gray-300 m-1 rounded'>{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</button>
                                                     })}
                                                 </div>
                                             </div>

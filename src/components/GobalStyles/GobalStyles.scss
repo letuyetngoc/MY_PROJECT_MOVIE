@@ -1,6 +1,5 @@
 // Helper
 //Vendor
-@import '~video-react/dist/video-react.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,6 +14,7 @@
 @import './Base//gobal';
 // Components
 @import './Components/ratingCircle.scss';
+@import './Components/loading.scss';
 // Layout
 // Pages
 @import './Pages/chiTietPhim.scss'
