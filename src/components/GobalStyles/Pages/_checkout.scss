@@ -1,0 +1,86 @@
+.movie__checkout {
+
+    .movie__checkout-hinhChuNhat {
+        width: 80%;
+        background-color: black;
+    }
+
+    .movie__checkout-hinhThang {
+        border-bottom: 35px solid rgb(170, 169, 169);
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        height: 0;
+        width: 80%;
+        opacity: 0.6;
+        filter: drop-shadow(1px 46px 42px #5c5a5a);
+        -webkit-filter: drop-shadow(1px 46px 42px #4c4949);
+        -moz-filter: drop-shadow(1px 46px 42px #383535);
+    }
+
+    .checkout_DSGhe {
+        margin: auto;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        .ghe {
+            background-color: gray;
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 8px;
+            border: none;
+
+            @include Responesive(XL) {
+                width: 30px;
+                height: 30px;
+                font-size: 10px;
+                margin: 4px;
+            }
+
+            @include Responesive(LG) {
+                width: 25px;
+                height: 25px;
+                font-size: 10px;
+                margin: 4px;
+            }
+
+            @include Responesive(MD) {
+                width: 20px;
+                height: 20px;
+                font-size: 7px;
+                margin: 3px;
+            }
+
+            @include Responesive(SM) {
+                width: 18px;
+                height: 18px;
+                font-size: 7px;
+                margin: 2px;
+            }
+
+            @media only screen and (max-width: 300px) {
+                width: 15px;
+                height: 15px;
+                font-size: 6px;
+                margin: 1px;
+            }
+
+        }
+
+        .gheDangChon {
+            background-color: green !important
+        }
+
+        .gheDaChon {
+            background-color: red
+        }
+
+        .gheVIP {
+            background-color: orange
+        }
+    }
+}

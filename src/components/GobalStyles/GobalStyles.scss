@@ -1,4 +1,5 @@
 // Helper
+@import './Helpers/mixin';
 //Vendor
 @tailwind base;
 @tailwind components;
@@ -13,9 +14,10 @@
 @import './Base/reset';
 @import './Base//gobal';
 // Components
-@import './Components/ratingCircle.scss';
-@import './Components/loading.scss';
+@import './Components/ratingCircle';
+@import './Components/loading';
 // Layout
 // Pages
-@import './Pages/chiTietPhim.scss'
+@import './Pages/chiTietPhim';
+@import './Pages/checkout'
 // Themes
