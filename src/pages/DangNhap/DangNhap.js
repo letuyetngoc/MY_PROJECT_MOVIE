@@ -56,7 +56,7 @@ export default function DangNhap() {
                                     </a>
                                 </div>
                             </div>
-                            <input name='matKhau' type='current-password'
+                            <input name='matKhau' type='password'
                                 onChange={formik.handleChange}
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập mật khẩu" />
                         </div>

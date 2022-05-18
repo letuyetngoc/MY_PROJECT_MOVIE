@@ -64,9 +64,12 @@ const CumRap = () => {
                                 {chiTietRap?.danhSachPhim.slice(0, 5).map((phim, index) => {
                                     return (
                                         <div className='mt-2' key={index}>
-                                            <h3 className=' my-2 font-medium text-xl text-gray-900'>{phim.tenPhim}</h3>
+                                            <h3 className=' my-2 font-medium text-xl text-gray-900 cursor-pointer ' onClick={() => history.push(`/chitietphim/${phim.maPhim}`)}>{phim.tenPhim}</h3>
                                             <div className='grid sm:grid-cols-3' >
-                                                <div className='bg-cover bg-center bg-no-repeat w-36 sm:w-48' style={{ backgroundImage: `url(${phim.hinhAnh})` }}>
+                                                <div className='bg-cover bg-center bg-no-repeat w-36 sm:w-48'
+                                                    style={{ backgroundImage: `url(${phim.hinhAnh})`, cursor: 'pointer' }}
+                                                    onClick={() => history.push(`/chitietphim/${phim.maPhim}`)}
+                                                >
                                                     <img src={phim.hinhAnh} onError={(e) => (e.target.onerror = null, e.target.src = 'https://picsum.photos/75/75')} className='h-52 w-32 sm:h-72 sm:w-52 shadow-md opacity-0' />
                                                 </div>
                                                 <div className='ml-3 mt-3 sm:col-span-2'>

@@ -11,6 +11,7 @@ import DangNhap from './pages/DangNhap/DangNhap';
 import { Suspense } from 'react';
 import Loading from './components/Loading/Loading';
 import UserTemplate from './templates/UserTemplate/UserTemplate';
+import Profile from './pages/Profile/Profile';
 
 const CheckoutTemplate = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'))
 const HomeTemplate = lazy(() => import('./templates/HomeTemplate/HomeTemplate'))
@@ -26,8 +27,9 @@ function App() {
           <HomeTemplate path='/cumrap' exact Component={CumRap} />
           <HomeTemplate path='/chitietphim/:id' exact Component={ChiTietPhim} />
           <CheckoutTemplate path='/checkout/:id' exact Component={Checkout} />
-          <Route path='/dangki' exact component={DangKi} />
+          <UserTemplate path='/dangki' exact Component={DangKi} />
           <UserTemplate path='/dangnhap' exact Component={DangNhap} />
+          <HomeTemplate path='/profile' exact Component={Profile} />
           <HomeTemplate path='' exact Component={Phim} />
         </Switch>
       </Suspense>
