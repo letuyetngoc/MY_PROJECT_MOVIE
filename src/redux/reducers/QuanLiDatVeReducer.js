@@ -16,11 +16,12 @@ export const QuanLiDatVeReducer = (state = stateDefault, action) => {
             let newArrGheDangDat = [...state.arrGheDangDat]
             let index = newArrGheDangDat.findIndex(ghe => ghe.maGhe === action.ghe.maGhe)
 
-            if (index != -1) {
+            if (index !== -1) {
                 newArrGheDangDat.splice(index, 1)
             } else {
                 newArrGheDangDat.push(action.ghe)
             }
+
 
             state.totalMoney = newArrGheDangDat.reduce((total, ghe) => {
                 return total + ghe.giaVe

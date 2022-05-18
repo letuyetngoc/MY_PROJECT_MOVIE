@@ -1,5 +1,4 @@
 .movie__checkout {
-
     .movie__checkout-hinhChuNhat {
         width: 80%;
         background-color: black;
@@ -17,70 +16,73 @@
         -moz-filter: drop-shadow(1px 46px 42px #383535);
     }
 
-    .checkout_DSGhe {
-        margin: auto;
-        text-align: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+    margin: auto;
+    text-align: center;
 
-        .ghe {
-            background-color: gray;
-            width: 35px;
-            height: 35px;
-            border-radius: 5px;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            margin: 8px;
-            border: none;
+    .ghe {
+        background-color: gray;
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 8px;
+        border: none;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
-            @include Responesive(XL) {
-                width: 30px;
-                height: 30px;
-                font-size: 10px;
-                margin: 4px;
-            }
-
-            @include Responesive(LG) {
-                width: 25px;
-                height: 25px;
-                font-size: 10px;
-                margin: 4px;
-            }
-
-            @include Responesive(MD) {
-                width: 20px;
-                height: 20px;
-                font-size: 7px;
-                margin: 3px;
-            }
-
-            @include Responesive(SM) {
-                width: 18px;
-                height: 18px;
-                font-size: 7px;
-                margin: 2px;
-            }
-
-            @media only screen and (max-width: 300px) {
-                width: 15px;
-                height: 15px;
-                font-size: 6px;
-                margin: 1px;
-            }
-
+        @include Responesive(XL) {
+            width: 30px;
+            height: 30px;
+            font-size: 10px;
+            margin: 4px;
         }
 
-        .gheDangChon {
-            background-color: green !important
+        @include Responesive(LG) {
+            width: 25px;
+            height: 25px;
+            font-size: 10px;
+            margin: 4px;
         }
 
-        .gheDaChon {
-            background-color: red
+        @include Responesive(MD) {
+            width: 20px;
+            height: 20px;
+            font-size: 7px;
+            margin: 3px;
         }
 
-        .gheVIP {
-            background-color: orange
+        @include Responesive(SM) {
+            width: 18px;
+            height: 18px;
+            font-size: 7px;
+            margin: 2px;
         }
+
+        @media only screen and (max-width: 300px) {
+            width: 15px;
+            height: 15px;
+            font-size: 6px;
+            margin: 1px;
+        }
+
+    }
+
+    .gheDangChon {
+        background-color: green !important
+    }
+
+    .gheDaChon {
+        background-color: red !important
+    }
+
+    .gheVIP {
+        background-color: orange
+    }
+
+    .gheBanDaChon {
+        background-color: #ffffff !important;
+        color: red;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     }
 }

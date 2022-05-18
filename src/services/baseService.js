@@ -10,7 +10,6 @@ export class baseService {
                 'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
                 'TokenCybersoft': TOKEN
             }
-
         })
     };
     post = (url, model) => {

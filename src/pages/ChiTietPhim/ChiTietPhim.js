@@ -21,10 +21,12 @@ export default function ChiTietPhim(props) {
     }, [])
 
     return (
-        <div className='movie__chiTietPhim' style={{ backgroundImage: `url('${filmDetail.hinhAnh}` }}>
+        <div className='movie__chiTietPhim bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url('${filmDetail.hinhAnh}` }}>
             <div className="movie__chiTietPhim-content">
-                <div className='flex flex-wrap justify-center sm:justify-between items-center mt-28  sm:mx-10  lg:mx-28'>
-                    <img className='w-72 h-96 shadow-md rounded-3xl' src={filmDetail.hinhAnh} alt='...' />
+                <div className='flex flex-wrap justify-center sm:justify-between items-center mt-28  sm:mx-10 lg:mx-28 '>
+                    <div className='bg-cover bg-center bg-no-repeat shadow-md rounded-3xl' style={{ backgroundImage: `url('${filmDetail.hinhAnh}` }}>
+                        <img className='w-72 h-96 opacity-0' src={filmDetail.hinhAnh} alt='...' />
+                    </div>
                     <div className=' w-72 sm:w-96 mt-5 text-left'>
                         <p className='text-base'>Ngày khởi chiếu: {moment(filmDetail.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
                         <h3 className='text-3xl sm:text-4xl font-bold text-indigo-600 my-3'>{filmDetail.tenPhim}</h3>
