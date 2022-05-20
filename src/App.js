@@ -11,7 +11,10 @@ import DangNhap from './pages/DangNhap/DangNhap';
 import { Suspense } from 'react';
 import Loading from './components/Loading/Loading';
 import UserTemplate from './templates/UserTemplate/UserTemplate';
-import Profile from './pages/Profile/Profile';
+import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+import Dashboard from './pages/Admin/Dashboard/Dashboard';
+import Films from './pages/Admin/Films/Films';
+import Showtime from './pages/Admin/Showtime/Showtime';
 
 const CheckoutTemplate = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'))
 const HomeTemplate = lazy(() => import('./templates/HomeTemplate/HomeTemplate'))
@@ -28,8 +31,12 @@ function App() {
           <HomeTemplate path='/chitietphim/:id' exact Component={ChiTietPhim} />
           <CheckoutTemplate path='/checkout/:id' exact Component={Checkout} />
           <UserTemplate path='/dangki' exact Component={DangKi} />
+          <AdminTemplate path='/admin' exact Component={Dashboard} />
+          <AdminTemplate path='/admin/users' exact Component={Dashboard} />
+          <AdminTemplate path='/admin/films' exact Component={Films} />
+          <AdminTemplate path='/admin/showtime' exact Component={Showtime} />
           <UserTemplate path='/dangnhap' exact Component={DangNhap} />
-          <HomeTemplate path='/profile' exact Component={Profile} />
+          {/* <HomeTemplate path='/profile' exact Component={Profile} /> */}
           <HomeTemplate path='' exact Component={Phim} />
         </Switch>
       </Suspense>
