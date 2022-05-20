@@ -148,10 +148,10 @@ export default function (props) {
     const menu = (
         <Menu
             items={[
-                {
-                    label: <a onClick={() => history.push('/profile')}>Thông tin tài khoản </a>,
-                    key: '0',
-                },
+                // {
+                //     label: <a onClick={() => history.push('/profile')}>Thông tin tài khoản </a>,
+                //     key: '0',
+                // },
                 {
                     label: <a onClick={() => {
                         localStorage.removeItem(USER_LOGIN)

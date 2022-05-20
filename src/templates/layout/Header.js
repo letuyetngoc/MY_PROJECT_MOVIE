@@ -24,7 +24,7 @@ export default function Header() {
                 </NavLink>
             </Fragment>
         } else {
-            return <div className=''>
+            return <div >
                 <NavLink to="/profile" className=" flex items-center gap-3 whitespace-nowrap text-base font-medium text-gray-900 hover:text-indigo-600">
                     <div className=' py-2 px-3 bg-indigo-600 hover:text-indigo-900 rounded-full text-white text-xl font-medium'>{userLogin.taiKhoan.slice(0, 1).toUpperCase()}</div>
                     <div>{`Hello ${userLogin.taiKhoan}!`}</div>
