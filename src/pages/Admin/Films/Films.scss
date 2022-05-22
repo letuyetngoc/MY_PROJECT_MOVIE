@@ -1,6 +1,15 @@
-
 .Admin__Films {
     .ant-btn-primary {
         @apply bg-indigo-600 hover:bg-indigo-700 #{!important}
+    }
+
+    .ant-table-pagination-right {
+        justify-content: flex-start;
+    }
+
+    .Admin__Films-table {
+        height: 100vh;
+        overflow-x: scroll;
+        overflow-y: scroll;
     }
 }

@@ -14,6 +14,9 @@ class QuanLiPhimService extends baseService {
     layDanhSachCumRap = () => {
         return this.get(`api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUP}`)
     }
+    ThemPhimUploadHinh = (formData) => {
+        return this.post(`api/QuanLyPhim/ThemPhimUploadHinh`, formData)
+    }
 }
 const quanLiPhimService = new QuanLiPhimService()
 export default quanLiPhimService
