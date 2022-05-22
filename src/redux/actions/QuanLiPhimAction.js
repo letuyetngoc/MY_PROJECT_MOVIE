@@ -1,7 +1,7 @@
 import quanLiPhimService from '../../services/QuanLiPhimService'
 import { GET_ARRFILM } from '../types/layDSBannerTypes'
 
-const LayDSBannerAction = async (dispatch) => {
+export const LayDSBannerAction = async (dispatch) => {
     try {
         const result = await quanLiPhimService.layDanhSachBanner()
         dispatch({
@@ -12,4 +12,15 @@ const LayDSBannerAction = async (dispatch) => {
         console.log('error', error)
     }
 }
-export default LayDSBannerAction
+export const ThemPhimUploadHinhAction = (formData) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLiPhimService.ThemPhimUploadHinh(formData)
+            alert('Thêm phim thành công!')
+            console.log('result', result)
+        }
+        catch (error) {
+            console.log('error', error.response.data)
+        }
+    }
+}
