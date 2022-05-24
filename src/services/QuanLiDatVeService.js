@@ -11,6 +11,9 @@ class QuanLiDatVe extends baseService {
     datVe = (thongTinDatVe = new ThongTinDatVe()) => {
         return this.post(`/api/QuanLyDatVe/DatVe`, thongTinDatVe)
     }
+    TaoLichChieu = (thongTinLichChieu) => {
+        return this.post(`api/QuanLyDatVe/TaoLichChieu`, thongTinLichChieu)
+    }
 
 }
 const quanLiDatVe = new QuanLiDatVe()

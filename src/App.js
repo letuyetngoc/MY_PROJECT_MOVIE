@@ -37,8 +37,9 @@ function App() {
           <AdminTemplate path='/admin/users' exact Component={Dashboard} />
           <AdminTemplate path='/admin/films' exact Component={Films} />
           <AdminTemplate path='/admin/films/addnew' exact Component={Addnew} />
+          <AdminTemplate path='/admin/dashboard' exact Component={Dashboard} />
+          <AdminTemplate path='/admin/films/showtime/:id' exact Component={Showtime} />
           <AdminTemplate path='/admin/films/edit/:id' exact Component={Edit} />
-          <AdminTemplate path='/admin/showtime' exact Component={Showtime} />
           <UserTemplate path='/dangnhap' exact Component={DangNhap} />
           {/* <HomeTemplate path='/profile' exact Component={Profile} /> */}
           <HomeTemplate path='' exact Component={Phim} />

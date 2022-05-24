@@ -3,15 +3,17 @@ import quanLiRapService from "../../services/QuanLiRapService"
 import { GET_ARR_CUM_RAP } from "../types/QuanLiRapTypes"
 import { GET_ARRFILM_SLICK, GET_CHI_TIET_PHIM } from "../types/QuanLiPhimTypes"
 
-export const LayDanhSachPhimAction = async (dispatch) => {
-    try {
-        const result = await quanLiPhimService.layDanhSachPhim()
-        dispatch({
-            type: GET_ARRFILM_SLICK,
-            arrFilm: result.data.content
-        })
-    } catch (error) {
-        console.log('error', error)
+export const LayDanhSachPhimAction = (tenPhim = '') => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLiPhimService.layDanhSachPhim(tenPhim)
+            dispatch({
+                type: GET_ARRFILM_SLICK,
+                arrFilm: result.data.content
+            })
+        } catch (error) {
+            console.log('error', error)
+        }
     }
 }
 
@@ -39,6 +41,7 @@ export const LayThongTinLichChieuPhim = (id) => {
         }
     }
 }
+
 
 
 

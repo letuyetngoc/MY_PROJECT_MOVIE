@@ -29,7 +29,7 @@ const Addnew = () => {
             // hinhAnh: {}
         },
         onSubmit: (values) => {
-            console.log('values', values);
+            // console.log('values', values);
             values.maNhom = GROUP;
             //Tạo đối tượng formdata => Đưa giá trị values từ formik vào formdata
             let formData = new FormData();
@@ -50,7 +50,7 @@ const Addnew = () => {
     }
     const handleChangeFile = (e) => {
         let file = e.target.files[0]
-        console.log(file)
+        // console.log(file)
         if (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/gif' || file.type === 'image/png') {
             let reader = new FileReader()
             reader.readAsDataURL(file)

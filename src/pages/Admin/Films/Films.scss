@@ -12,4 +12,13 @@
         overflow-x: scroll;
         overflow-y: scroll;
     }
+
+}
+
+.ant-tooltip-inner {
+    background-color: rgb(79 70 227) !important;
+}
+
+.ant-tooltip-arrow-content {
+    --antd-arrow-background-color: rgb(79 70 227) !important;
 }
