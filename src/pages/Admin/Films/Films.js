@@ -1,23 +1,30 @@
 import React, { useEffect } from 'react'
 import './Films.scss'
 import { Table } from 'antd';
-import { Input, Button } from 'antd';
+import { Input, Button, Tooltip } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { LayDanhSachPhimAction } from '../../../redux/actions/QuanLiRapAction';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
+import { EditOutlined, DeleteOutlined, CalendarOutlined } from '@ant-design/icons'
 import { history } from '../../../App';
-import { NavLink } from 'react-bootstrap';
+import { XoaPhimAction } from '../../../redux/actions/QuanLiPhimAction'
 
 const { Search } = Input;
+const textXoa = <span>Xóa phim</span>;
+const textSua = <span>Sửa phim</span>;
+const textTaoLichChieu = <span>Tạo lịch chiếu</span>;
 
 export default function Films() {
     const { arrFilm } = useSelector(state => state.QuanLiPhimReducer)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(LayDanhSachPhimAction)
+        dispatch(LayDanhSachPhimAction())
     }, [])
 
+    const onSearch = (value) => {
+        // console.log('value', value)
+        dispatch(LayDanhSachPhimAction(value))
+    }
     const columns = [
         {
             key: 'maPhim',
@@ -35,7 +42,6 @@ export default function Films() {
                 return <div style={{ backgroundImage: `url(${text})`, width: '50px', height: '50px' }} className='bg-no-repeat bg-cover bg-center '>
                     <img src={film.hinhAnh} width={50} height={50} className='opacity-0' onError={(e) => (e.target.onerror = null, e.target.src = `https://picsums.photos/id/${index}/50`)} alt='...' />
                 </div>
-
             },
             width: '10%'
         },
@@ -62,23 +68,37 @@ export default function Films() {
                 return <span>{moTa.length > 200 ? moTa.substr(0, 200) + '...' : moTa}</span>
             },
             width: '50%'
-
         },
         {
             key: 'hanhDong',
             title: 'Hành động',
             render: (text, film) => {
                 return <div className='flex gap-2 justify-center items '>
-                    <div onClick={() => history.push(`/admin/films/edit/${film.maPhim}`)}>
-                        <EditOutlined className='text-indigo-600 hover:text-indigo-800 text-xl cursor-pointer' />
-                    </div>
-                    <NavLink to='/'>
-                        <DeleteOutlined className='text-red-500 hover:text-red-700 text-xl cursor-pointer' />
-                    </NavLink>
+                    <Tooltip placement="bottom" title={textSua}>
+                        <div onClick={() => history.push(`/admin/films/edit/${film.maPhim}`)}>
+                            <EditOutlined className='text-indigo-600 hover:text-indigo-800 text-xl cursor-pointer' />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title={textXoa}>
+                        <div onClick={() => {
+                            if (window.confirm(`Bạn muốn xóa phim ${film.tenPhim}?`)) {
+                                dispatch(XoaPhimAction(film.maPhim))
+                            }
+                        }}>
+                            <DeleteOutlined className='text-red-500 hover:text-red-700 text-xl cursor-pointer' />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title={textTaoLichChieu}>
+                        <div onClick={() => {
+                            localStorage.setItem('filmsParams', JSON.stringify(film))
+                            history.push(`/admin/films/showtime/${film.maPhim}`)
+                        }}>
+                            <CalendarOutlined className='text-indigo-600 hover:text-indigo-800 text-xl cursor-pointer' />
+                        </div>
+                    </Tooltip>
                 </div>
             },
             width: '50%'
-
         },
     ];
     const data = arrFilm.map((film, index) => {
@@ -94,6 +114,7 @@ export default function Films() {
             placeholder="input search user"
             enterButton
             size="large"
+            onSearch={onSearch}
         />
         <div className='Admin__Films-table '>
             <Table columns={columns} dataSource={data} style={{ minWidth: '1000px' }} />

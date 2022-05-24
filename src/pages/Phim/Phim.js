@@ -11,7 +11,7 @@ export default function Home() {
     const { arrFilm } = useSelector(state => state.QuanLiPhimReducer)
 
     useEffect(() => {
-        dispatch(LayDanhSachPhimAction)
+        dispatch(LayDanhSachPhimAction())
     }, [])
 
     useEffect(() => {

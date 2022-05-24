@@ -11,6 +11,12 @@ class QuanLiRapService extends baseService {
     layThongTinLichChieuPhim = (id) => {
         return this.get(`api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`)
     }
+    LayThongTinHeThongRap = () => {
+        return this.get('api/QuanLyRap/LayThongTinHeThongRap')
+    }
+    LayThongTinCumRapTheoHeThong = (maHeThongRap) => {
+        return this.get(`api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`)
+    }
 
 }
 const quanLiRapService = new QuanLiRapService()

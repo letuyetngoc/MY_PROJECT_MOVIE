@@ -11,8 +11,11 @@ export const quanLiDangNhap = (thongTinDangNhap) => {
                     type: DANG_NHAP_ACTION,
                     userLogin: result.data.content
                 })
-                // chuyển hướng về trang trước đó
-                history.goBack()
+                if (result.data.content.maLoaiNguoiDung === 'QuanTri') {
+                    history.push('/admin')
+                } else {
+                    history.goBack()
+                }
             }
         } catch (error) {
             console.log('error', error)
