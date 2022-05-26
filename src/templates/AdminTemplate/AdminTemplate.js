@@ -6,7 +6,7 @@ import { ACCESS_TOKEN, USER_LOGIN } from '../../util/settings/config';
 import { history } from '../../App';
 import { useSelector } from 'react-redux';
 
-const { Header, Content, Sider, Footer } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const AdminTemplate = (props) => {
   const { userLogin } = useSelector(state => state.QuanLiNguoiDungReducer)

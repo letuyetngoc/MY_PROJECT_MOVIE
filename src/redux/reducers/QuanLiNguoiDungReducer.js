@@ -7,7 +7,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 }
 const stateDefault = {
     userLogin: user,
-    thongTinTaiKhoan: {}
+    thongTinNguoiDung: {}
 }
 export const QuanLiNguoiDungReducer = (state = stateDefault, action) => {
     switch (action.type) {
