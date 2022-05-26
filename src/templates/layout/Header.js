@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import _ from 'lodash'
 import { ACCESS_TOKEN, USER_LOGIN } from '../../util/settings/config'
+import { history } from '../../App'
 
 export default function Header() {
 
@@ -48,7 +49,8 @@ export default function Header() {
             </Fragment>
         } else {
             return <NavLink to="/profile" className=' hover:bg-gray-200'>
-                <Popover.Button className="text-base font-medium text-gray-900 hover:text-indigo-600">
+                <Popover.Button onClick={() => history.push('/profile')}
+                    className="text-base font-medium text-gray-900 hover:text-indigo-600">
                     {`Hello ${userLogin.taiKhoan}!`}
                 </Popover.Button>
             </NavLink>

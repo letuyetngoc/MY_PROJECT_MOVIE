@@ -68,7 +68,7 @@ export default function DangNhap() {
                             </button>
                         </div>
                     </div>
-                    <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                    <div className="mt-8 text-sm font-display font-semibold text-gray-700 text-center">
                         Bạn chưa có tài khoản ? <NavLink to='/dangki' className="cursor-pointer text-indigo-600 hover:text-indigo-800">Đăng kí</NavLink>
                     </div>
                 </div>
