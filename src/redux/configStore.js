@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers } from "redux";
 import { createStore } from 'redux'
 import thunk from "redux-thunk";
 import LayDSBannerReducer from "./reducers/LayDSBannerReducer";
+import LoadingReducer from "./reducers/LoadingReducer";
 import { QuanLiDatVeReducer } from "./reducers/QuanLiDatVeReducer";
 import { QuanLiNguoiDungReducer } from "./reducers/QuanLiNguoiDungReducer";
 import QuanLiPhimReducer from "./reducers/QuanLiPhimReducer";
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     QuanLiRapReducer,
     QuanLiNguoiDungReducer,
     QuanLiDatVeReducer,
+    LoadingReducer,
 })
 export const store = createStore(rootReducer, applyMiddleware(thunk))
 

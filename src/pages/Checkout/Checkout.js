@@ -2,15 +2,16 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DatVeAction, LayChiTietPhongVeAction } from '../../redux/actions/QuanLiDatVeActions'
 import { CloseCircleOutlined, UserOutlined } from '@ant-design/icons'
-import { SET_GHE_DANG_DAT } from '../../redux/types/QuanLiDatVeTypes'
+import { CHUYEN_TAB, SET_GHE_DANG_DAT } from '../../redux/types/QuanLiDatVeTypes'
 import { ThongTinDatVe } from '../../_core/models/QuanLiDatVe'
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 import _ from 'lodash'
 import { Tabs, Menu, Dropdown, Space } from 'antd';
-import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLiNguoiDungAction'
-import { moment } from 'moment'
 import { HomeOutlined } from '@ant-design/icons';
 import { history } from '../../App'
 import { ACCESS_TOKEN, USER_LOGIN } from '../../util/settings/config'
+import LoadingChildren from '../../components/Loading/LoadingChildren'
+import KetQuaDatVe from './KetQuaDatVe'
 
 function Checkout(props) {
 
@@ -60,10 +61,9 @@ function Checkout(props) {
             <div className='bg-gray-200 col-span-12 sm:col-span-9 md:col-span-8 '>
                 <div className='movie__checkout-hinhChuNhat mt-3 mx-auto'>abc</div>
                 <div className='movie__checkout-hinhThang mx-auto text-2xl text-gray-900 font-bold text-center'>Màn hình</div>
-                <div className=''>
-                    <div>
-                        {renderGhe()}
-                    </div>
+                <div className='relative'>
+                    {renderGhe()}
+                    <LoadingChildren />
                 </div>
                 <div className='flex justify-between w-full sm:w-11/12 mx-auto my-3'>
                     <div>
@@ -144,37 +144,42 @@ function Checkout(props) {
 
 export default function (props) {
     const { userLogin } = useSelector(state => state.QuanLiNguoiDungReducer)
+    const dispatch = useDispatch()
+    const { changeTab } = useSelector(state => state.QuanLiDatVeReducer)
     const { TabPane } = Tabs;
     const menu = (
         <Menu
             items={[
-                // {
-                //     label: <a onClick={() => history.push('/profile')}>Thông tin tài khoản </a>,
-                //     key: '0',
-                // },
                 {
-                    label: <a onClick={() => {
+                    label: <p onClick={() => {
+                        history.push('/profile')
+                    }}>Thông tin tài khoản</p>,
+                    key: '1',
+                },
+                {
+                    label: <p onClick={() => {
                         localStorage.removeItem(USER_LOGIN)
                         localStorage.removeItem(ACCESS_TOKEN)
                         history.push('/home')
                         window.location.reload()
-                    }}>Đăng xuất</a>,
-                    key: '1',
+                    }}>Đăng xuất</p>,
+                    key: '2',
                 },
+
             ]}
         />
     );
 
     const operations = <div className=' mr-2 flex gap-4'>
         <Dropdown overlay={menu} trigger={['click']}>
-            <a onClick={e => e.preventDefault()} className='flex flex-column items-center'>
+            <div className='flex flex-column items-center cursor-pointer '>
                 <div className='py-2 px-3 bg-indigo-600 hover:text-indigo-900 rounded-full text-white text-xl font-medium'>{userLogin.taiKhoan.slice(0, 1).toUpperCase()}</div>
                 <Space>
                     <span className="whitespace-nowrap text-base font-medium text-gray-900 hover:text-indigo-600">
                         {userLogin.taiKhoan}
                     </span>
                 </Space>
-            </a>
+            </div>
         </Dropdown>
         <div onClick={() => history.push('/home')}>
             <HomeOutlined className='text-4xl text-indigo-600 hover:text-indigo-900 cursor-pointer' />
@@ -182,52 +187,33 @@ export default function (props) {
     </div >
 
     return <div className='text-2xl font-bold'>
-        <Tabs defaultActiveKey="1" tabBarExtraContent={operations} >
+        <Tabs defaultActiveKey='1' activeKey={changeTab} tabBarExtraContent={operations} onChange={key => {
+            dispatch({
+                type: CHUYEN_TAB,
+                tabActive: key
+            })
+        }} >
             <TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
                 <Checkout {...props} />
             </TabPane>
             <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
-                <KetQuaDatVe />
+                <section className="text-gray-600 body-font">
+                    <div className="container px-5 mx-auto">
+                        <div className="flex flex-col text-center w-full mb-6">
+                            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Kết quả đặt vé</h1>
+                            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy kiểm tra thời gian và địa điểm chính xác để có một buổi xem phim vui vẻ bạn nhé!</p>
+                        </div>
+                        <div className='relative '>
+                            <KetQuaDatVe />
+                            <LoadingChildren />
+                        </div>
+                    </div>
+                </section>
             </TabPane>
         </Tabs>
     </div>
 }
-function KetQuaDatVe() {
-    const dispatch = useDispatch()
 
-    const { thongTinTaiKhoan, userLogin } = useSelector(state => state.QuanLiNguoiDungReducer)
-
-    useEffect(() => {
-        const action = layThongTinNguoiDungAction();
-        dispatch(action)
-    }, [])
-
-    const renderKetQuaDatVe = () => {
-        return thongTinTaiKhoan.thongTinDatVe?.map((thongTin, index) => {
-            return <div key={index} className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={thongTin.hinhAnh} />
-                <div className="flex-grow">
-                    <h2 className="text-gray-900 title-font font-medium">{thongTin.tenPhim}</h2>
-                    <p className="text-gray-500">Giờ chiếu: {moment(thongTin.ngayDat).format('hh:mm A')}- Ngày chiếu: {moment(thongTin.ngayDat).format('dd/mm/yyyy')}</p>
-                </div>
-            </div>
-        })
-    }
-
-    return (
-        <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
-                <div className="flex flex-col text-center w-full mb-20">
-                    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Kết quả đặt vé</h1>
-                    <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy kiểm tra thời gian và địa điểm chính xác để có một buổi xem phim vui vẻ bạn nhé!</p>
-                </div>
-                <div className="flex flex-wrap -m-2">
-                    {renderKetQuaDatVe()}
-                </div>
-            </div>
-        </section>
-    )
-}
 
 
 

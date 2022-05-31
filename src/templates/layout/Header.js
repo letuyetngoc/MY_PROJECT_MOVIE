@@ -3,13 +3,14 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import _ from 'lodash'
 import { ACCESS_TOKEN, USER_LOGIN } from '../../util/settings/config'
 import { history } from '../../App'
+import { layDanhSachNguoiDung, layDanhSachNguoiDungAction } from '../../redux/actions/QuanLiNguoiDungAction'
 
 export default function Header() {
-
+    const dispatch = useDispatch()
     const { userLogin } = useSelector(state => state.QuanLiNguoiDungReducer)
     const renderLoginLaptop = () => {
         if (_.isEmpty(userLogin)) {
