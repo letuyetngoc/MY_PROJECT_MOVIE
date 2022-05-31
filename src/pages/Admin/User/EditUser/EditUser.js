@@ -2,7 +2,7 @@ import { Form, Input, Select } from 'antd';
 import { useFormik } from 'formik';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatThongTinNguoiDungAction, layThongTinNguoiDungAction, themNguoiDungAction } from '../../../../redux/actions/QuanLiNguoiDungAction';
+import { capNhatThongTinNguoiDungAction, layThongTinNguoiDungAction } from '../../../../redux/actions/QuanLiNguoiDungAction';
 import { GROUP } from '../../../../util/settings/config';
 
 const EditUser = (props) => {

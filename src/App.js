@@ -1,5 +1,5 @@
 import React, { lazy } from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
 import { createBrowserHistory } from "history";
 // import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import Phim from './pages/Phim/Phim'
@@ -10,8 +10,8 @@ import DangKi from './pages/DangKi/DangKi';
 import DangNhap from './pages/DangNhap/DangNhap';
 import { Suspense } from 'react';
 import Loading from './components/Loading/Loading';
-import UserTemplate from './templates/UserTemplate/UserTemplate';
-import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+// import UserTemplate from './templates/UserTemplate/UserTemplate';
+// import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import Films from './pages/Admin/Films/Films';
 import Showtime from './pages/Admin/Showtime/Showtime';
 import Addnew from './pages/Admin/Films/AddNew/Addnew';
@@ -23,6 +23,8 @@ import Profile from './pages/Profile/Profile';
 
 const CheckoutTemplate = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'))
 const HomeTemplate = lazy(() => import('./templates/HomeTemplate/HomeTemplate'))
+const UserTemplate = lazy(() => import('./templates/UserTemplate/UserTemplate'))
+const AdminTemplate = lazy(() => import('./templates/AdminTemplate/AdminTemplate'))
 
 export const history = createBrowserHistory();
 
@@ -45,7 +47,7 @@ function App() {
           <AdminTemplate path='/admin/users/adduser' exact Component={AddUser} />
           <AdminTemplate path='/admin/users/edituser/:id' exact Component={EditUser} />
           <UserTemplate path='/dangnhap' exact Component={DangNhap} />
-          <HomeTemplate path='/profile' exact Component={Profile} />
+          <CheckoutTemplate path='/profile' exact Component={Profile} />
           <HomeTemplate path='' exact Component={Phim} />
         </Switch>
       </Suspense>

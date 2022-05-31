@@ -29,6 +29,12 @@ class QuanLiNguoiDung extends baseService {
     dangKi = (thongTinDangKi) => {
         return this.post('api/QuanLyNguoiDung/DangKy', thongTinDangKi)
     }
+    thongTinTaiKhoan = () => {
+        return this.post('api/QuanLyNguoiDung/ThongTinTaiKhoan')
+    }
+    capNhatThongTinNguoiDungPut = (thongTinNguoiDung) => {
+        return this.put('api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', thongTinNguoiDung)
+    }
 }
 const quanLiNguoiDung = new QuanLiNguoiDung()
 export default quanLiNguoiDung

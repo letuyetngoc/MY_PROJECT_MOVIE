@@ -1,7 +1,8 @@
 import quanLiNguoiDung from "../../services/QuanLiNguoiDungService"
-import { DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from "../types/QuanLiNguoiDungType"
+import { DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG, THONG_TIN_TAI_KHOAN } from "../types/QuanLiNguoiDungType"
 import { history } from '../../App'
-import { USER_LOGIN } from "../../util/settings/config"
+import { displayLoadingAction, hideLoadingAction } from "./LoadingAction"
+import { message } from 'antd';
 
 export const quanLiDangNhap = (thongTinDangNhap) => {
     return async (dispatch) => {
@@ -19,14 +20,15 @@ export const quanLiDangNhap = (thongTinDangNhap) => {
                 }
             }
         } catch (error) {
+            alert(error.response.data.content)
             console.log('error', error)
         }
     }
 }
 export const layThongTinNguoiDungAction = (taiKhoan) => {
-
     return async (dispatch) => {
         try {
+            dispatch(displayLoadingAction)
             const result = await quanLiNguoiDung.layThongTinNguoiDung(taiKhoan);
             if (result.data.statusCode === 200) {
                 dispatch({
@@ -34,7 +36,7 @@ export const layThongTinNguoiDungAction = (taiKhoan) => {
                     thongTinNguoiDung: result.data.content
                 });
             }
-            // console.log('result', result)
+            dispatch(hideLoadingAction)
         } catch (error) {
             console.log('error', error.response.data);
         }
@@ -46,7 +48,8 @@ export const xoaNguoiDungAction = (taiKhoan) => {
     return async () => {
         try {
             const result = await quanLiNguoiDung.xoaNguoiDung(taiKhoan)
-            alert(`Xoá tài khoản ${taiKhoan} thành công! `)
+            await message.success(`Xoá tài khoản ${taiKhoan} thành công! `, [2])
+
         }
         catch (error) {
             console.log('error', error.response?.data)
@@ -57,7 +60,7 @@ export const themNguoiDungAction = (thongTinNguoiDung) => {
     return async () => {
         try {
             const result = await quanLiNguoiDung.themNguoiDung(thongTinNguoiDung)
-            alert('Thêm người dùng thành công!')
+            await message.success('Thêm người dùng thành công!', [2])
             history.push('/admin/users')
             // console.log('result', result)
         } catch (error) {
@@ -72,7 +75,7 @@ export const capNhatThongTinNguoiDungAction = (thongTinNguoiDung) => {
     return async () => {
         try {
             const result = await quanLiNguoiDung.capNhatThongTinNguoiDung(thongTinNguoiDung)
-            alert('Cập nhật thành công')
+            await message.success('Cập nhật thành công!', [2])
             history.push('/admin/users')
         } catch (error) {
             console.log('error', error.response?.data)
@@ -84,7 +87,7 @@ export const dangKiAction = (thongTinDangKi) => {
     return async () => {
         try {
             const result = await quanLiNguoiDung.dangKi(thongTinDangKi)
-            alert('Đăng kí thành công!')
+            await message.success('Đăng kí thành công!', [2])
             history.push('/dangnhap')
             // console.log(result)
         } catch (error) {
@@ -95,3 +98,30 @@ export const dangKiAction = (thongTinDangKi) => {
         }
     }
 }
+export const thongTinTaiKhoanAction = async (dispatch) => {
+    try {
+        dispatch(displayLoadingAction)
+        const result = await quanLiNguoiDung.thongTinTaiKhoan()
+        dispatch({
+            type: THONG_TIN_TAI_KHOAN,
+            thongTinTaiKhoan: result.data.content
+        })
+        dispatch(hideLoadingAction)
+    } catch (error) {
+        console.log('error', error.response.data)
+    }
+}
+// export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
+//     return async (dispatch) => {
+//         try {
+//             const result = await quanLiNguoiDung.layDanhSachNguoiDung(tuKhoa)
+//             console.log('resultDS', result.data.content)
+//             dispatch({
+//                 type: LAY_DANH_SACH_NGUOI_DUNG,
+//                 danhSachNguoiDung: result.data.content
+//             })
+//         } catch (error) {
+//             console.log('error', error.response.data)
+//         }
+//     }
+// }
